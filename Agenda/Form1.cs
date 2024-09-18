@@ -50,9 +50,10 @@ namespace Agenda
         
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bt_Adicionar_Click(object sender, EventArgs e)
         {
-
+            Ad_Edit sh = new Ad_Edit();
+            sh.ShowDialog();
         }
     }
 }

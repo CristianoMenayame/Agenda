@@ -31,13 +31,7 @@ namespace Agenda
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Abrir a conecao
-            SqlCeConnection conect = new SqlCeConnection();
-            conect.Open();
-            //instrucoes
-            conect.ConnectionString = @"Data source =E:\BD\Loja.sdf";
-            //Fechar a conecao
-            conect.Close();
+           
         }
     }
 }

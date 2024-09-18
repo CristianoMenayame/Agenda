@@ -27,14 +27,33 @@ namespace Agenda
             Base_Dados = Pasta_Dados + "dados.sdf";
             if (!File.Exists(Base_Dados))
             {
+                //Chamar o metodo criar banco de dados
                 Criar_Banco_de_Dados();
             }
         }
 
         public static void Criar_Banco_de_Dados()
         {
+            //Criar o banco de dados
             SqlCeEngine motor = new SqlCeEngine("Data Source=" + Base_Dados);
             motor.CreateDatabase();
+            //Estrutura do banco de dados
+            SqlCeConnection Conect = new SqlCeConnection();
+            Conect.ConnectionString = "Data Source=" + Base_Dados;
+            Conect.Open();
+
+            //Criando tabela
+            SqlCeCommand instrucao = new SqlCeCommand();
+            instrucao.CommandText = " CREATE TABLE CONTACTOS ( " +
+                "id_Contatos              int not null primary key," +
+                "nome                     nvarchar(50)," +
+                "telefone                 nvarchar(20)," +
+                "atualizacao              datetime )";
+            instrucao.Connection = Conect;
+            instrucao.ExecuteNonQuery();
+
+            instrucao.Dispose();
+            Conect.Dispose();
         }
     }
 }
