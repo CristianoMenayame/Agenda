@@ -32,10 +32,12 @@ namespace Agenda
 
         private void button3_Click(object sender, EventArgs e)
         {
-            form_Inserir form_Inser = new form_Inserir();
-            form_Inser.Show();
-            form_Inser.FormClosed += Logout;
-            this.Hide();
+            //form_Inserir form_Inser = new form_Inserir();
+            //form_Inser.Show();
+            //form_Inser.FormClosed += Logout;
+            //this.Hide();
+            fr_Apresentar fr = new fr_Apresentar();
+            fr.ShowDialog();
             
         }
         public void Logout(object sender, FormClosedEventArgs e)
@@ -46,7 +48,7 @@ namespace Agenda
         private void button1_Click(object sender, EventArgs e)
         {
             Pesquisar form_P = new Pesquisar();
-            form_P.Show();
+            form_P.ShowDialog();
         
         }
 

@@ -26,7 +26,7 @@ namespace Agenda
         {
             Resultados form_resultado = new Resultados();
             this.Close();
-            form_resultado.Show();
+            form_resultado.ShowDialog();
         }
     }
 }

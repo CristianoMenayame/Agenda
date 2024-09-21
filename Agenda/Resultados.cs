@@ -26,7 +26,9 @@ namespace Agenda
         {
             Pesquisar form_p = new Pesquisar();
             this.Close();
-            form_p.Show();
+            form_p.ShowDialog();
+            
+            
         }
     }
 }
