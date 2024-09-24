@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tx_Pesquisar = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tx_Pesquisar
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 31);
-            this.textBox1.TabIndex = 0;
+            this.tx_Pesquisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tx_Pesquisar.Location = new System.Drawing.Point(12, 31);
+            this.tx_Pesquisar.Multiline = true;
+            this.tx_Pesquisar.Name = "tx_Pesquisar";
+            this.tx_Pesquisar.Size = new System.Drawing.Size(245, 31);
+            this.tx_Pesquisar.TabIndex = 0;
             // 
             // button1
             // 
@@ -80,7 +81,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tx_Pesquisar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Pesquisar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -92,7 +93,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tx_Pesquisar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;

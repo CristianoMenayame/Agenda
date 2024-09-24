@@ -1,4 +1,4 @@
-﻿namespace Agenda
+﻿ namespace Agenda
 {
     partial class fr_Apresentar
     {
@@ -33,6 +33,7 @@
             this.lb_Quantidade = new System.Windows.Forms.Label();
             this.bt_Apagar = new System.Windows.Forms.Button();
             this.bt_Editar = new System.Windows.Forms.Button();
+            this.bt_Ver_Tudo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gr_Resultados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,12 +93,23 @@
             this.bt_Editar.UseVisualStyleBackColor = true;
             this.bt_Editar.Click += new System.EventHandler(this.bt_Editar_Click);
             // 
+            // bt_Ver_Tudo
+            // 
+            this.bt_Ver_Tudo.Location = new System.Drawing.Point(201, 328);
+            this.bt_Ver_Tudo.Name = "bt_Ver_Tudo";
+            this.bt_Ver_Tudo.Size = new System.Drawing.Size(99, 32);
+            this.bt_Ver_Tudo.TabIndex = 5;
+            this.bt_Ver_Tudo.Text = "Ver Tudo";
+            this.bt_Ver_Tudo.UseVisualStyleBackColor = true;
+            this.bt_Ver_Tudo.Click += new System.EventHandler(this.bt_Ver_Tudo_Click);
+            // 
             // fr_Apresentar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 372);
             this.ControlBox = false;
+            this.Controls.Add(this.bt_Ver_Tudo);
             this.Controls.Add(this.bt_Editar);
             this.Controls.Add(this.bt_Apagar);
             this.Controls.Add(this.lb_Quantidade);
@@ -108,7 +120,7 @@
             this.MinimizeBox = false;
             this.Name = "fr_Apresentar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Lista de todos contactos";
+            this.Text = "Resultados";
             this.Load += new System.EventHandler(this.fr_Apresentar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gr_Resultados)).EndInit();
             this.ResumeLayout(false);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Label lb_Quantidade;
         private System.Windows.Forms.Button bt_Apagar;
         private System.Windows.Forms.Button bt_Editar;
+        private System.Windows.Forms.Button bt_Ver_Tudo;
     }
 }

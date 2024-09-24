@@ -49,6 +49,17 @@ namespace Agenda
         {
             Pesquisar form_P = new Pesquisar();
             form_P.ShowDialog();
+            //Verifica se for cancelado 
+            if (form_P.Cancelado)
+            {
+                form_P.Dispose();
+                return;
+            }
+            //Executar a pesquisa
+            //string texto = form_P.texto_Pesquisa;
+            //string query = "SELECT * FROM CONTACTOS WHERE nome LIKE '%" + texto + "'%'";
+            fr_Apresentar form_A = new fr_Apresentar(form_P.texto_Pesquisa);
+            form_A.ShowDialog();
         
         }
 

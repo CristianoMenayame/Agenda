@@ -158,7 +158,7 @@ namespace Agenda
                 gravar.CommandText = "SELECT * FROM CONTACTOS WHERE nome=@Nome AND id_Contatos <> @Id_Contactos";
                 SqlCeDataAdapter instrucao = new SqlCeDataAdapter();
                 instrucao.SelectCommand = gravar;
-                int v = 0;
+                
                 instrucao.Fill(dados);
                 //verifica se existe um registro com mesmo nome
                 if(dados.Rows.Count != 0)

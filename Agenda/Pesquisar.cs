@@ -12,6 +12,9 @@ namespace Agenda
 {
     public partial class Pesquisar : Form
     {
+        //------------------------------------------------------
+        public string texto_Pesquisa { get; set; }
+        public bool Cancelado { get; set; }
         public Pesquisar()
         {
             InitializeComponent();
@@ -19,14 +22,22 @@ namespace Agenda
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Cancelado = true;
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Resultados form_resultado = new Resultados();
+            //Chama o formulario de resultados se o textbox preenchido
+            if (tx_Pesquisar.Text == "")
+            {
+                Cancelado = true;
+            }
+            else
+            {
+                texto_Pesquisa = tx_Pesquisar.Text;
+            }
             this.Close();
-            form_resultado.ShowDialog();
         }
     }
 }

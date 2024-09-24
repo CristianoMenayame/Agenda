@@ -14,9 +14,11 @@ namespace Agenda
     public partial class fr_Apresentar : Form
     {
         int id_Contacto;
-        public fr_Apresentar()
+        string TX_pesquisa;
+        public fr_Apresentar(string TX_pesquisa = "")
         {
             InitializeComponent();
+            this.TX_pesquisa = TX_pesquisa;
         }
         //______________________________________________________
         private void bt_Fechar_Click(object sender, EventArgs e)
@@ -33,8 +35,16 @@ namespace Agenda
             SqlCeConnection conect = new SqlCeConnection("Data Source = " + Vars.Base_Dados);
             conect.Open();
 
+            string query = "SELECT * FROM CONTACTOS ORDER BY nome";
+            if(TX_pesquisa != "")
+                query = "SELECT * FROM CONTACTOS WHERE nome LIKE @TX_pesquisa OR telefone LIKE @TX_pesquisa ";
+            SqlCeCommand instrucao2 = new SqlCeCommand();
+            instrucao2.Parameters.AddWithValue("@TX_pesquisa","%" + TX_pesquisa + "%");
+            instrucao2.CommandText = query;
+            instrucao2.Connection = conect;
             //Buscar Informacoes
-            SqlCeDataAdapter instrucao = new SqlCeDataAdapter("SELECT * FROM CONTACTOS ORDER BY nome", conect);
+            SqlCeDataAdapter instrucao = new SqlCeDataAdapter();
+            instrucao.SelectCommand = instrucao2;
             DataTable dados = new DataTable();
             instrucao.Fill(dados);
 
@@ -49,8 +59,8 @@ namespace Agenda
             gr_Resultados.Columns[3].Visible = false;
 
             //Redimencionar as colunas 
-            gr_Resultados.Columns[1].Width = 250;
-            gr_Resultados.Columns[2].Width = 100;
+            gr_Resultados.Columns[1].Width = Calcular_percentagem(60);
+            gr_Resultados.Columns[2].Width = Calcular_percentagem(40);
 
 
             //Controlar a visibildade dos Comandos
@@ -107,6 +117,21 @@ namespace Agenda
             adt.ShowDialog();
             //Atualizar a grelha
             Construir_Grelha();
+        }
+        //____________________________________________________________________
+        private void bt_Ver_Tudo_Click(object sender, EventArgs e)
+        {
+            //O texto de pesquisa= vazio entao ele aprensenta todos contactos
+            TX_pesquisa = "";
+            Construir_Grelha();
+        }
+        //____________________________________________________________________
+        public int Calcular_percentagem(int perc)
+        {
+            int lar_gr = gr_Resultados.Width;
+            int resultado = (lar_gr * perc) / 100;
+
+            return resultado;
         }
     }
 }
